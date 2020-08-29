@@ -9,7 +9,7 @@ export default function orderByProps(object, keyArray) {
   const keys = Object.keys(object);
 
   for (const key in object) {
-    if (Object.prototype.hasOwnProperty.call(object, key) && keys.includes(key) === false) {
+    if (Object.prototype.hasOwnProperty.call(object, key)) {
       result.push({
         key,
         value: object[key],
