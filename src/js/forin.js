@@ -9,7 +9,7 @@ export default function orderByProps(object, keyArray) {
   const keys = Object.keys(object);
 
   for (const key in object) {
-    if (Object.prototype.hasOwnProperty.call(object, key)) {
+    if (Object.prototype.hasOwnProperty.call(object, key) && keyArray.includes(key) === false) {
       result.push({
         key,
         value: object[key],
@@ -26,7 +26,7 @@ export default function orderByProps(object, keyArray) {
 
   keyArray.forEach((entry) => {
     if (keys.includes(entry)) {
-      result.push({
+      result.unshift({
         key: entry,
         value: object[entry],
       });
